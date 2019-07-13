@@ -1,6 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {BrowserRouter} from 'react-router-dom';
+import {Router} from 'react-router-dom';
+import history from './history'
 import Container from './Container';
 import {store} from './Redux'
 
@@ -8,9 +9,9 @@ export default function App() {
     return (
         <div>
             <Provider store = {store}>
-            <BrowserRouter>
+            <Router history={history}>
             <Container />
-            </BrowserRouter>
+            </Router>
             </Provider>
         </div>
     )

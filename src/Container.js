@@ -6,12 +6,16 @@ import uuid from 'uuid';
 import {connect} from 'react-redux';
 import {fetchEmployees} from './Redux';
 import PersonalPage from './components/PersonalPage';
+import Add from './components/Add'
 
 class Container extends Component {
 
 
   componentDidMount() {
-    this.props.fetchEmployees()
+
+    if(!this.props.users[0]) {
+      this.props.fetchEmployees()
+    }
   }
 
 
@@ -24,10 +28,8 @@ class Container extends Component {
     return (
        
       <div className="App">
-      <header className="App-header">
-          sotrudiniki
-      </header>
         <Route exact path='/' render = {props => <Employees emp = {this.props.users} />} />
+        <Route path='/add' component={Add}/>
         {personalRoutes}
       </div>
        

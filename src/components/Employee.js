@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
-import { Redirect} from 'react-router-dom';
-import {redirectTo} from '../Redux'
-import { connect } from 'react-redux';
+import history from '../history'
 
-class Employee extends Component {
+export default class Employee extends Component {
+    
+    onError = (e) => {
+        e.target.onerror = null;
+        e.target.src=this.props.noImage
 
-    handleClick = () => {
-        this.props.redirecting(this.props.id)
+    }
+    
+    redirectToTarget = () => {
+        history.push(`/${this.props.id}`)
     }
 
     render() {
-        let shouldRedirect = this.props.ifRedirect ? <Redirect to = {this.props.to} /> : null
         return (
-            <div onClick = {this.handleClick} style = {{display:'flex', flexDirection: 'row', background:'lightBlue', marginTop:'10px', padding:'10px', borderStyle:'solid', borderColor:'grey'}}>
-                {shouldRedirect}
-                <div className = 'avatar' style={{width: '30%', height:'250px', background:'lightGrey', borderStyle:'solid', borderColor:'grey'}}>{this.props.id}</div>
+            <div onClick = {this.redirectToTarget} style = {{display:'flex', flexDirection: 'row', background:'lightBlue', marginTop:'10px', padding:'10px', borderStyle:'solid', borderColor:'grey'}}>
+                <div className = 'avatar' style={{width: '30%', overflow: 'hidden',  height:'250px',borderStyle:'solid', borderColor:'grey'}}><img alt='Employee' onError={this.onError} height='200px' src={this.props.img}></img></div>
                 <div className = 'info' style={{width:'70%'}}>
                 {this.props.name}<br></br>
                 {this.props.job}
@@ -24,15 +26,5 @@ class Employee extends Component {
         )
     }
 }
-
-const mapDispatchToProps = {
-    redirecting: redirectTo
-}
-
-const mapStateToProps = (state) => ({
-    ifRedirect:state.ifRedirect.redirect,
-    to:state.ifRedirect.to
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Employee)
+ 
  
