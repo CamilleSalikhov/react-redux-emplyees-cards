@@ -3,7 +3,7 @@ import {Provider} from 'react-redux';
 import {Router} from 'react-router-dom';
 import history from './history'
 import Container from './Container';
-import {store} from './Redux'
+import {store} from './reduxRelated/reduxStore'
 
 export default function App() {
     return (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import  './carousel.css';
 import {connect} from 'react-redux';
-import {changePosition} from '../Redux';
+import {changePosition} from '../reduxRelated/actions';
 import uuid from 'uuid';
 import history from '../history'
 

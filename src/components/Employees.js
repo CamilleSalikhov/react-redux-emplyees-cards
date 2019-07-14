@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import Employee from './Employee'
 import uuid from 'uuid';
-import {Link} from 'react-router-dom'
-export default class Employees extends Component {
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux'
+
+class Employees extends Component {
     
     render() {
+        let error = this.props.error ? 'block' : 'none';
+        let linkVisibility = this.props.error ? 'none' : 'inline'
         let employees = this.props.emp.map(e =>
         <Employee
         key = {uuid.v4()}
@@ -17,7 +21,10 @@ export default class Employees extends Component {
         return (
             <div>
                 <div style={headerStyle}>Employees</div>
-                <Link to='/add'>Add new employee</Link>
+                <Link style={{display:linkVisibility}} to='/add'>Add new employee</Link>
+                <div style={{display:error}}>We couldn't connect to the server <br></br>
+                Try again.
+                </div>
                 {employees}
             </div>
         )
@@ -34,3 +41,9 @@ const headerStyle = {
   fontSize: 'calc(10px + 2vmin)',
   color: 'white'
 }
+
+const mapStateToProps = state => ({
+    error:state.main.error
+})
+
+export default connect(mapStateToProps, null)(Employees)

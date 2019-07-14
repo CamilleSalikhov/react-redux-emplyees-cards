@@ -1,82 +1,10 @@
-import thunk from 'redux-thunk';
-import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
-//types
-const FETCH_EMPLOYEES = 'FETCH_EMPLOYEES';
-const ADD_EMPLOYEE = 'ADD_EMPLOYEE';
-const POST_COMMENT = 'POST_COMMENT';
-const NEW_USER_COMMENTS = 'NEW_USER_COMMENTS'
-const HEAD_STATUS = 'HEAD_STATUS';
-const COMMENT_STATUS = 'COMMENT_STATUS';
-const RESET_BUTTON = 'RESET_BUTTON';
-const CAROUSEL_POSITION = "CAROUSEL_POSITION"
-
-//actions
-
-const resetButton = () => (
-    {
-        type:RESET_BUTTON
-    }
-)
-
-const addNewUserComments = (id) => ({
-    type:NEW_USER_COMMENTS,
-    payload:id
-})
-
-const addEmployee = (newEmpObject) => ({
-    type:ADD_EMPLOYEE,
-    payload:newEmpObject
-})
-
-
-const changePosition = (data) => (
-    {
-        type:CAROUSEL_POSITION,
-        payload:data
-    }
-)
-
-
-
-const changeHeadStatus = (data) => (
-    {
-        type:HEAD_STATUS,
-        payload:data
-    }
-)
-
-const changeCommentStatus = (data) => (
-    {
-        type:COMMENT_STATUS,
-        payload:data
-    }
-)
-
-
-
-const fetchEmployees = (data) => dispatch => {
-    fetch('http://ozo8l.mocklab.io/users')
-    .then(res => res.json())
-    .then(res => dispatch({
-        type: FETCH_EMPLOYEES,
-        payload: res
-    }))
-}
-
-
-
-
-const postComment = (commentObj) => (
-    {
-        type: POST_COMMENT,
-        payload: commentObj
-    }
-)
-
+import {combineReducers} from 'redux';
+import {FETCH_EMPLOYEES, FETCH_ERROR, POST_COMMENT, ADD_EMPLOYEE,  NEW_USER_COMMENTS, HEAD_STATUS, COMMENT_STATUS, RESET_BUTTON, CAROUSEL_POSITION} from './types'
 
 //main reducer
 const initialState = {
-    users: []
+    users: [],
+    error:false
 }
 
 
@@ -84,13 +12,20 @@ const mainReducer = (state = initialState, action) => {
     switch(action.type) {
         case FETCH_EMPLOYEES:
             return {
-                ...state,
-                users:action.payload
+                users:action.payload,
+                error:false
 
             };
             case ADD_EMPLOYEE:
             return {
-                users:state.users.concat(action.payload)
+                users:state.users.concat(action.payload),
+                error:state.error
+
+            };
+            case FETCH_ERROR:
+            return {
+                users:state.users,
+                error:true
 
             }
             default: 
@@ -196,25 +131,6 @@ const rootReducer = combineReducers({
     carouselPosition: carouselReducer
 })
 
-
-
-
-//create store
-const middleware = [thunk];
-const store = createStore(rootReducer, {}, compose(
-    applyMiddleware(...middleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-
-))
-
 export {
-    store,
-    fetchEmployees,
-    postComment,
-    changeHeadStatus,
-    changeCommentStatus,
-    changePosition,
-    addEmployee,
-    addNewUserComments,
-    resetButton
+    rootReducer
 }

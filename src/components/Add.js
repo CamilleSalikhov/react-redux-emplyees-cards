@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
-import {addEmployee, addNewUserComments} from '../Redux'
+import {addEmployee, addNewUserComments} from '../reduxRelated/actions'
 import { connect } from 'react-redux';
 import history from '../history'
 

@@ -15,8 +15,8 @@ export default class Employee extends Component {
 
     render() {
         return (
-            <div onClick = {this.redirectToTarget} style = {{display:'flex', flexDirection: 'row', background:'lightBlue', marginTop:'10px', padding:'10px', borderStyle:'solid', borderColor:'grey'}}>
-                <div className = 'avatar' style={{width: '30%', overflow: 'hidden',  height:'250px',borderStyle:'solid', borderColor:'grey'}}><img alt='Employee' onError={this.onError} height='200px' src={this.props.img}></img></div>
+            <div onClick = {this.redirectToTarget} style = {{display:'flex', cursor:'pointer', flexDirection: 'row', background:'lightBlue', marginTop:'10px', padding:'10px', borderStyle:'solid', borderColor:'grey'}}>
+                <div className = 'avatar' style={{width: '30%', overflow: 'hidden',  height:'250px',borderStyle:'solid', borderColor:'grey', background:'white'}}><img alt='Employee' onError={this.onError} height='200px' src={this.props.img}></img></div>
                 <div className = 'info' style={{width:'70%'}}>
                 {this.props.name}<br></br>
                 {this.props.job}

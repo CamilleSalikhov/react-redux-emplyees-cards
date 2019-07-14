@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {postComment, changeHeadStatus, changeCommentStatus, resetButton} from '../Redux';
+import {postComment, changeHeadStatus, changeCommentStatus, resetButton} from '../reduxRelated/actions';
 import uuid from 'uuid'
 
 class Comments extends Component {

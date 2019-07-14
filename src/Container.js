@@ -4,7 +4,7 @@ import Employees from './components/Employees';
 import { Route} from 'react-router-dom';
 import uuid from 'uuid';
 import {connect} from 'react-redux';
-import {fetchEmployees} from './Redux';
+import {fetchEmployees} from './reduxRelated/actions';
 import PersonalPage from './components/PersonalPage';
 import Add from './components/Add'
 
@@ -43,6 +43,7 @@ const mapDispatchToProps = {
 
 const mapStateToProps = state => ({
   users: state.main.users,
+  error: state.main.error
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Container);
