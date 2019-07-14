@@ -43,7 +43,7 @@ const changeCommentStatus = (data) => (
 
 
 const fetchEmployees = (data) => dispatch => {
-    fetch('http://ozo8l.mocklab.io/users')
+    fetch('https://ozo8l.mocklab.io/users')
     .then(res => res.json())
     .then(res => dispatch({
         type: FETCH_EMPLOYEES,
