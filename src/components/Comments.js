@@ -46,7 +46,7 @@ class Comments extends Component {
     }
 
     render() {
-        let currentComments = this.props.comments[this.props.id].slice(0).reverse().slice(0,4);
+        let currentComments = this.props.comments[this.props.id].slice(0).reverse().slice(0,5);
         let renderComments = currentComments.map(e => 
             <div key= {uuid.v4()} style={{borderStyle:'solid', textAlign:'start', marginBottom:'5px'}}>
                 <div>Header:{e.header}</div>
