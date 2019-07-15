@@ -63,7 +63,7 @@ const buttonReducer = (state=initialButton, action) => {
     }
 
 }
-//carousel position
+//carousel position reducer
 
 const carouselReducer = (state={position: 0}, action) => {
     switch(action.type) {

@@ -6,6 +6,7 @@ import {rootReducer} from './reducers'
 const middleware = [thunk];
 const store = createStore(rootReducer, {}, compose(
     applyMiddleware(...middleware)
+
 ))
 
 export {
