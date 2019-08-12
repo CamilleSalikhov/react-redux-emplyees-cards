@@ -15,7 +15,7 @@ class Add extends Component {
             occupation:e.target.elements.occupation.value,
             address:e.target.elements.address.value,
             img:e.target.elements.image.value,
-            noimage:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Icon-round-Question_mark.svg/1024px-Icon-round-Question_mark.svg.png'
+            noimage:'https://imageog.flaticon.com/icons/png/512/36/36601.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF'
         }
         this.props.newEmployee(newEmpObj);
         this.props.newComments(newEmpObj.id)

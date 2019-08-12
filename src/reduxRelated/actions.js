@@ -1,4 +1,5 @@
-import {FETCH_EMPLOYEES, FETCH_ERROR, POST_COMMENT, ADD_EMPLOYEE,  NEW_USER_COMMENTS, HEAD_STATUS, COMMENT_STATUS, RESET_BUTTON, CAROUSEL_POSITION} from './types'
+import {FETCH_EMPLOYEES, FETCH_ERROR, POST_COMMENT, ADD_EMPLOYEE,  NEW_USER_COMMENTS, HEAD_STATUS, COMMENT_STATUS, RESET_BUTTON, CAROUSEL_POSITION} from './types';
+import {response} from '../apiGetResponse'
 
 const resetButton = () => (
     {
@@ -41,20 +42,17 @@ const changeCommentStatus = (data) => (
 )
 
 
+//request to API
+const fetchEmployees = (data) => ({
+    type: FETCH_EMPLOYEES,
+    payload: response
+})
 
-const fetchEmployees = (data) => dispatch => {
-    fetch('https://ozo8l.mocklab.io/users')
-    .then(res => res.json())
-    .then(res => dispatch({
-        type: FETCH_EMPLOYEES,
-        payload: res
-    }))
-    .catch(err => dispatch(
+/*.catch(err => dispatch(
         {
             type:FETCH_ERROR
         }
-    ))
-}
+    )) */
 
 
 
