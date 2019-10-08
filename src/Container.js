@@ -6,7 +6,8 @@ import uuid from 'uuid';
 import {connect} from 'react-redux';
 import {fetchEmployees} from './reduxRelated/actions';
 import PersonalPage from './components/PersonalPage';
-import Add from './components/Add'
+import Add from './components/Add';
+import Head from './components/Head'
 
 class Container extends Component {
 
@@ -28,32 +29,18 @@ class Container extends Component {
     return (
        
       <div className="App">
-        <header style={headerStyle}>
-          <p>Employees</p>
-        </header>
+        <Head />
         
         <Route exact path='/' render = {props => <Employees emp = {this.props.users} />} />
         <Route path='/add' component={Add}/>
         {personalRoutes}
-        <footer style={{height:'70px', backgroundColor:'#F5F7F9', marginTop:'10px', textAlign:'center', display:'flex', alignItems:'center', justifyContent:'center'}}>ФУТЕР ФУТЕР ФУТЕР ФУТЕР ФУТЕР </footer>
-      </div>
+        </div>
        
     )
   }
 }
 
 
-const headerStyle = {
-    
-  backgroundColor: '#282c34',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  fontSize: 'calc(10px + 2vmin)',
-  color: 'white',
-  height: '50px'
-}
 
 const mapDispatchToProps = {
   fetchEmployees

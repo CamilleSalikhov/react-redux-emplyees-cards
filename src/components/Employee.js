@@ -33,7 +33,7 @@ const containerStyle = {
     cursor:'pointer',
     flexDirection: 'row',
     background:'#D0EEE6',
-    marginTop:'10px',
+    marginBottom:'10px',
     padding:'10px',
     marginLeft:'20px'
 }

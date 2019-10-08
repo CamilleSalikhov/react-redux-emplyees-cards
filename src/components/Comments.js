@@ -29,7 +29,9 @@ class Comments extends Component {
     }
 
     disableEnter = e => {
-        if (e.key === 'Enter') e.preventDefault();
+        if (e.key === 'Enter') {
+            e.preventDefault();
+        };
       }
 
     handleSubmit = (e) => {
@@ -62,7 +64,7 @@ class Comments extends Component {
                 <form onSubmit={this.handleSubmit} style={{display:'flex', flexDirection:'column', marginTop:'20px'}}>
                     <input type='text' onKeyPress={this.disableEnter} onChange={this.handleHead} placeholder='Header (5 symbols or more)' name='header' ></input>
                     <input type='number' onKeyPress={this.disableEnter} placeholder='Your phone number' name='number'></input>
-                    <textarea  onChange={this.handleComment} style={{height:'50px'}} name='comment'></textarea>
+                    <textarea  onChange={this.handleComment} style={{height:'150px'}} name='comment'></textarea>
                     <button type='submit' disabled={this.props.headStatus || this.props.commentStatus}>Add comment</button>
 
                 </form>
