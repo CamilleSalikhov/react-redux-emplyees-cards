@@ -16,7 +16,7 @@ export default class Employee extends Component {
     render() {
         return (
             <div onClick = {this.redirectToTarget} style = {containerStyle}>
-                <div className = 'avatar' style={avatarStyle}><img alt='Employee' onError={this.onError} height='200px' src={this.props.img}></img></div>
+                <img style = {imageStyle} alt='Employee' onError={this.onError} height='200px' src={this.props.img}></img>
                 <div className = 'info' style={{width:'70%'}}>
                 {this.props.name}<br></br>
                 {this.props.job}
@@ -32,18 +32,18 @@ const containerStyle = {
     display:'flex',
     cursor:'pointer',
     flexDirection: 'row',
-    background:'lightBlue',
+    background:'#D0EEE6',
     marginTop:'10px',
     padding:'10px',
-    borderStyle:'solid',
-    borderColor:'grey'
+    marginLeft:'20px'
 }
 
-const avatarStyle = {
-    width: '30%',
-    overflow: 'hidden',
-    height:'250px',
-    borderStyle:'solid',
-    borderColor:'grey',
-    background:'white'
+
+
+const imageStyle = {
+    width:'200px',
+  height:'200px',
+  borderRadius: '50%',
+  objectFit: 'cover',
+  marginLeft: '20px'
 }
