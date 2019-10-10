@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Employees from './components/Employees';
-import { Route} from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 import uuid from 'uuid';
 import {connect} from 'react-redux';
 import {fetchEmployees} from './reduxRelated/actions';
@@ -30,10 +30,12 @@ class Container extends Component {
        
       <div className="App">
         <Head />
-        
+        <Switch>
         <Route exact path='/' render = {props => <Employees emp = {this.props.users} />} />
         <Route path='/add' component={NewEmployee}/>
         {personalRoutes}
+        <Route render={() => <h2>Page not found!</h2>} />
+        </Switch>
         </div>
        
     )
