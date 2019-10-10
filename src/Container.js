@@ -6,7 +6,7 @@ import uuid from 'uuid';
 import {connect} from 'react-redux';
 import {fetchEmployees} from './reduxRelated/actions';
 import PersonalPage from './components/PersonalPage';
-import Add from './components/Add';
+import NewEmployee from './components/NewEmployee';
 import Head from './components/Head'
 
 class Container extends Component {
@@ -32,7 +32,7 @@ class Container extends Component {
         <Head />
         
         <Route exact path='/' render = {props => <Employees emp = {this.props.users} />} />
-        <Route path='/add' component={Add}/>
+        <Route path='/add' component={NewEmployee}/>
         {personalRoutes}
         </div>
        

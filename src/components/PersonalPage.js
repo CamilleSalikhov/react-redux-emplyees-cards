@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Comments from './Comments';
-import {Link} from 'react-router-dom';
 import Carousel from './Carousel'
 
 export default class PersonalPage extends Component {
@@ -55,6 +54,5 @@ const containerStyle = {
     background:'#D0EEE6',
     marginBottom:'10px',
     padding:'10px',
-    marginLeft:'20px'
 }
 

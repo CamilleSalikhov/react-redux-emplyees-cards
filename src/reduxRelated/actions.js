@@ -1,4 +1,4 @@
-import {FETCH_EMPLOYEES, FETCH_ERROR, POST_COMMENT, ADD_EMPLOYEE,  NEW_USER_COMMENTS, HEAD_STATUS, COMMENT_STATUS, RESET_BUTTON, CAROUSEL_POSITION} from './types';
+import {FETCH_EMPLOYEES, /* FETCH_ERROR, */ POST_COMMENT, ADD_EMPLOYEE,  NEW_USER_COMMENTS, HEAD_STATUS, COMMENT_STATUS, RESET_BUTTON, CAROUSEL_POSITION} from './types';
 import {response} from '../apiGetResponse'
 
 const resetButton = () => (
@@ -26,7 +26,8 @@ const changePosition = (data) => (
 )
 
 
-
+/*
+button related reducer
 const changeHeadStatus = (data) => (
     {
         type:HEAD_STATUS,
@@ -40,7 +41,7 @@ const changeCommentStatus = (data) => (
         payload:data
     }
 )
-
+*/
 
 //request to API
 const fetchEmployees = (data) => ({
@@ -67,8 +68,8 @@ const postComment = (commentObj) => (
 export {
     fetchEmployees,
     postComment,
-    changeHeadStatus,
-    changeCommentStatus,
+    /*changeHeadStatus,
+    changeCommentStatus,*/
     changePosition,
     addEmployee,
     addNewUserComments,

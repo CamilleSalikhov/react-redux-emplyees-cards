@@ -7,11 +7,11 @@ class Head extends Component {
 
 
     render() {
-        let linkVisibility = this.props.error ? 'none' : 'inline-block';
+        let linkVisibility = this.props.error ? 'none' : 'flex';
         return (
             <div style={headerStyle}>
                 <Link to='/' style={homeStyle} >Employees</Link>
-                <Link style={{display:linkVisibility, backgroundColor:'white',height:'40px', textDecoration:'none', textAlign:'center', color:'black', alignSelf:'flex-end', marginTop:'-30px', display:'flex', flexDirection:'column', justifyContent:'center', marginRight:'10px',padding:'0 5px 0 5px'}} to='/add'>Add new employee</Link>
+                <Link style={{display:linkVisibility, backgroundColor:'white',height:'40px', textDecoration:'none', textAlign:'center', color:'black', alignSelf:'flex-end', marginTop:'-30px', flexDirection:'column', justifyContent:'center', marginRight:'10px',padding:'0 5px 0 5px'}} to='/add'>Add new employee</Link>
                 
             </div>
         )

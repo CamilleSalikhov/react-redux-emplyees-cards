@@ -33,7 +33,7 @@ const mainReducer = (state = initialState, action) => {
             
     }
 }
-
+/*
 //button reducer
 const initialButton = {
     headStatus:true,
@@ -63,6 +63,9 @@ const buttonReducer = (state=initialButton, action) => {
     }
 
 }
+
+*/
+
 //carousel position reducer
 
 const carouselReducer = (state={position: 0}, action) => {
@@ -127,7 +130,7 @@ const commentsReducer = (state =initialComments, action) => {
 const rootReducer = combineReducers({
     main: mainReducer,
     commentsForm: commentsReducer,
-    buttonStatus:buttonReducer,
+    /*buttonStatus:buttonReducer,*/
     carouselPosition: carouselReducer
 })
 

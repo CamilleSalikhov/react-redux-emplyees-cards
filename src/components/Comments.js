@@ -5,28 +5,7 @@ import uuid from 'uuid'
 
 class Comments extends Component {
 
-    componentWillUnmount() {
-        this.props.resetButton()
-
-    }
-
-
-    handleComment = (e) => {
-        if(e.target.value.length > 128) {
-            this.props.changeCommentStatus(true)
-        } else {
-            this.props.changeCommentStatus(false)
-        }
-    }
-
     
-    handleHead = (e) => {
-        if(e.target.value.length < 5 || e.target.value.length > 80) {
-            this.props.changeHeadStatus(true)
-        } else {
-            this.props.changeHeadStatus(false)
-        }
-    }
 
     disableEnter = e => {
         if (e.key === 'Enter') {
@@ -42,18 +21,19 @@ class Comments extends Component {
             text: e.target.elements.comment.value,
             location:this.props.id
         }
-        this.props.post(newComment)
+        this.props.post(newComment);
+        e.target.reset()
         
         
     }
 
     render() {
-        let currentComments = this.props.comments[this.props.id].slice(0).reverse().slice(0,5);
+        let currentComments = this.props.comments[this.props.id].slice(0).reverse().slice(0,5).reverse();
         let renderComments = currentComments.map(e => 
-            <div key= {uuid.v4()} style={{borderStyle:'solid', textAlign:'start', marginBottom:'5px'}}>
-                <div>Header:{e.header}</div>
-                <div>Number:{e.number}</div>
-                <div>{e.text}</div>
+            <div key= {uuid.v4()} style={{backgroundColor:'#F5F7F9', textAlign:'start', marginBottom:'5px'}}>
+                <div>User:{e.header}</div>
+                <div>Phone number:{e.number}</div>
+                <div>Said:{e.text}</div>
             </div>
             )
 
@@ -62,10 +42,10 @@ class Comments extends Component {
                 Recent comments:
                 {renderComments}
                 <form onSubmit={this.handleSubmit} style={{display:'flex', flexDirection:'column', marginTop:'20px'}}>
-                    <input type='text' onKeyPress={this.disableEnter} onChange={this.handleHead} placeholder='Header (5 symbols or more)' name='header' ></input>
+                    <input type='text' onKeyPress={this.disableEnter}  placeholder='Your name' name='header' ></input>
                     <input type='number' onKeyPress={this.disableEnter} placeholder='Your phone number' name='number'></input>
-                    <textarea  onChange={this.handleComment} style={{height:'150px'}} name='comment'></textarea>
-                    <button type='submit' disabled={this.props.headStatus || this.props.commentStatus}>Add comment</button>
+                    <textarea   style={{height:'150px'}} name='comment'></textarea>
+                    <button type='submit'>Add comment</button>
 
                 </form>
             </div>
@@ -74,20 +54,12 @@ class Comments extends Component {
 }
 
 const mapDispatchToProps = {
-    post: postComment,
-    changeHeadStatus:changeHeadStatus,
-    changeCommentStatus:changeCommentStatus,
-    resetButton:resetButton
-    
-
+    post: postComment
 }
 
 const mapStateToProps = state => (
     {
-    comments: state.commentsForm,
-    headStatus:state.buttonStatus.headStatus,
-    commentStatus:state.buttonStatus.commentStatus,
-    
+    comments: state.commentsForm
 }
 )
 

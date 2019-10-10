@@ -4,7 +4,7 @@ import {addEmployee, addNewUserComments} from '../reduxRelated/actions'
 import { connect } from 'react-redux';
 import history from '../history'
 
-class Add extends Component {
+class NewEmployee extends Component {
     
 
     handleSubmit = (e) => {
@@ -46,4 +46,4 @@ const mapDispatchToProps = {
     newComments:addNewUserComments
 }
 
-export default connect(null,mapDispatchToProps)(Add)
+export default connect(null,mapDispatchToProps)(NewEmployee)
