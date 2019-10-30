@@ -1,0 +1,27 @@
+.personalPageContainer {
+    display:flex;
+    flex-direction:column;
+    margin-left:350px;
+    margin-right:350px
+}
+
+.personalCard {
+    display:flex;
+    cursor:pointer;
+    flex-direction: row;
+    background:#D0EEE6;
+    margin-bottom:10px;
+    padding:10px
+}
+
+.personalCard img {
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 20px
+}
+
+div .info {
+    text-align: start;
+}

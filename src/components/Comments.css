@@ -1,0 +1,15 @@
+.comment {
+    background-color:#F5F7F9;
+    text-align:start;
+    margin-bottom:5px
+}
+
+.commentForm {
+    display:flex;
+    flex-direction:column;
+    margin-top:20px
+}
+
+.commentForm textarea {
+    height:150px
+}

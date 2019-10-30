@@ -1,0 +1,10 @@
+p.formLabel {
+    text-align: center;
+}
+
+.newUserForm {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:20px
+}

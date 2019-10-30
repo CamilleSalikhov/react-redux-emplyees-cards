@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import {addEmployee, addNewUserComments} from '../reduxRelated/actions'
 import { connect } from 'react-redux';
-import history from '../history'
+import history from '../history';
+import './NewEmployee.css'
 
 class NewEmployee extends Component {
     
@@ -26,8 +27,8 @@ class NewEmployee extends Component {
     render() {
         return (
             <div>
-                Add new employee
-                <form onSubmit={this.handleSubmit} style={{display:'flex', flexDirection:'column', alignItems:'center', marginTop:'20px'}}>
+                <p className ='formLabel'>Add new employee</p>
+                <form className='newUserForm' onSubmit={this.handleSubmit}>
                     <input type='text' placeholder='Full name' name='name' ></input>
                     <input type='text' placeholder='Occupation' name='occupation' ></input>
                     <input type='text' placeholder='Address' name='address' ></input>
