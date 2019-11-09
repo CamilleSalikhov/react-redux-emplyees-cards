@@ -1,0 +1,17 @@
+.frontPageCard img {
+    width: 200px;
+    height:200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 20px
+}
+
+.frontPageCard {
+    display:flex;
+    cursor:pointer;
+    flex-direction: row;
+    background:#D0EEE6;
+    margin-bottom:10px;
+    padding:10px;
+    margin-left:20px
+}

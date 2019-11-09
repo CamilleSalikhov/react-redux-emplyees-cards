@@ -7,7 +7,7 @@ import {fetchEmployees} from './reduxRelated/actions';
 import PersonalPage from './components/PersonalPage';
 import NewEmployee from './components/NewEmployee';
 import Head from './components/Head';
-import './App.css'
+import './Container.css'
 
 class Container extends Component {
 

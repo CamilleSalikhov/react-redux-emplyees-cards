@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import history from '../history'
+import history from '../history';
+import './Employee.css'
 
 export default class Employee extends Component {
     
@@ -15,8 +16,8 @@ export default class Employee extends Component {
 
     render() {
         return (
-            <div onClick = {this.redirectToTarget} style = {containerStyle}>
-                <img style = {imageStyle} alt='Employee' onError={this.onError} height='200px' src={this.props.img}></img>
+            <div className='frontPageCard' onClick = {this.redirectToTarget}>
+                <img  alt='Employee' onError={this.onError} height='200px' src={this.props.img}></img>
                 <div className = 'info' style={{width:'70%'}}>
                 {this.props.name}<br></br>
                 {this.props.job}
@@ -28,22 +29,3 @@ export default class Employee extends Component {
 }
  
 
-const containerStyle = {
-    display:'flex',
-    cursor:'pointer',
-    flexDirection: 'row',
-    background:'#D0EEE6',
-    marginBottom:'10px',
-    padding:'10px',
-    marginLeft:'20px'
-}
-
-
-
-const imageStyle = {
-    width:'200px',
-  height:'200px',
-  borderRadius: '50%',
-  objectFit: 'cover',
-  marginLeft: '20px'
-}
