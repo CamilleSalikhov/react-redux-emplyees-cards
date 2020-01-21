@@ -1,4 +1,4 @@
-import {FETCH_EMPLOYEES, /* FETCH_ERROR, */ POST_COMMENT, ADD_EMPLOYEE,  NEW_USER_COMMENTS, RESET_BUTTON, CAROUSEL_POSITION} from './types';
+import {FETCH_EMPLOYEES, /* FETCH_ERROR, */ POST_COMMENT, ADD_EMPLOYEE,  NEW_USER_COMMENTS, RESET_BUTTON, CAROUSEL_POSITION, FINISH_LOAD, CHANGE_PAGE} from './types';
 import {response} from '../apiGetResponse'
 
 const resetButton = () => (
@@ -22,6 +22,19 @@ const changePosition = (data) => (
     {
         type:CAROUSEL_POSITION,
         payload:data
+    }
+)
+
+const finishLoad =() => (
+    {
+        type: FINISH_LOAD
+    }
+)
+
+const changeCurrentPage = (pageNumber) => (
+    {
+    type: CHANGE_PAGE,
+    pageNumber
     }
 )
 
@@ -73,5 +86,7 @@ export {
     changePosition,
     addEmployee,
     addNewUserComments,
-    resetButton
+    resetButton,
+    finishLoad,
+    changeCurrentPage
 }

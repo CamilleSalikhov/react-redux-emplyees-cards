@@ -1,10 +1,12 @@
 import {combineReducers} from 'redux';
-import {FETCH_EMPLOYEES, FETCH_ERROR, POST_COMMENT, ADD_EMPLOYEE,  NEW_USER_COMMENTS, CAROUSEL_POSITION} from './types'
+import {FETCH_EMPLOYEES, FETCH_ERROR, POST_COMMENT, ADD_EMPLOYEE,  NEW_USER_COMMENTS, CAROUSEL_POSITION, FINISH_LOAD, CHANGE_PAGE} from './types'
 
 //main reducer
 const initialState = {
     users: [],
-    error:false
+    error:false,
+    loading:true,
+    currentPage:1
 }
 
 
@@ -12,22 +14,34 @@ const mainReducer = (state = initialState, action) => {
     switch(action.type) {
         case FETCH_EMPLOYEES:
             return {
+                ...state,
                 users:action.payload,
-                error:false
 
             };
             case ADD_EMPLOYEE:
             return {
+                ...state,
                 users:state.users.concat(action.payload),
                 error:state.error
 
             };
             case FETCH_ERROR:
             return {
-                users:state.users,
+                ...state,
                 error:true
 
-            }
+            };
+            case FINISH_LOAD:
+                return {
+                    ...state,
+                    loading:false
+                };
+            case CHANGE_PAGE:
+                return {
+                    ...state,
+                    currentPage:action.pageNumber
+
+                }
             default: 
             return state;
             

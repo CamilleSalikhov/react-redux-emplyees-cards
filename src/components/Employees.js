@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import Employee from './Employee'
 import uuid from 'uuid';
-import './Employees.css'
-export default class Employees extends Component {
+import './Employees.css';
+import Paginate from './Paginate';
+import {connect} from 'react-redux'
+
+class Employees extends Component {
     
     render() {
         let error = this.props.error ? 'block' : 'none';
-        let employees = this.props.emp.map(e =>
+
+        let indexOfLastPost = this.props.currentPage * 5;
+        let indexOfFirstPost = indexOfLastPost - 5;
+        let currentPosts = this.props.users.slice(indexOfFirstPost, indexOfLastPost)
+    
+        let employees = currentPosts.map(e =>
         <Employee
         key = {uuid.v4()}
         name = {e.name}
@@ -28,6 +36,7 @@ export default class Employees extends Component {
                 Try again.
                 </div>
                 {employees}
+                <Paginate  />
             </div>
             </div>
             <footer className='cardsFooter'><p>GitHub: <a href='https://github.com/CamilleSalikhov'>/CamilleSalikhov</a></p></footer>
@@ -36,4 +45,12 @@ export default class Employees extends Component {
     }
 }
 
+const mapStateToProps = (state) => (
+    {
+        users: state.main.users,
+        currentPage: state.main.currentPage,
+        loading:state.main.loading
+    }
+)
 
+export default connect(mapStateToProps, null)(Employees)

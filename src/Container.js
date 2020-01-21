@@ -3,7 +3,7 @@ import Employees from './components/Employees';
 import { Route, Switch} from 'react-router-dom';
 import uuid from 'uuid';
 import {connect} from 'react-redux';
-import {fetchEmployees} from './reduxRelated/actions';
+import {fetchEmployees, finishLoad} from './reduxRelated/actions';
 import PersonalPage from './components/PersonalPage';
 import NewEmployee from './components/NewEmployee';
 import Head from './components/Head';
@@ -15,12 +15,14 @@ class Container extends Component {
   componentDidMount() {
 
     if(!this.props.users[0]) {
-      this.props.fetchEmployees()
+      this.props.fetchEmployees();
+      this.props.finishLoad()
     }
   }
 
 
-  render() {
+  render() {  
+
     let personalRoutes = this.props.users.map(e => <Route key={uuid.v4()} path={`/${e.id}`} render = {props=>
     <PersonalPage
     info = {e}
@@ -31,7 +33,7 @@ class Container extends Component {
       <div className="App">
         <Head />
         <Switch>
-        <Route exact path='/' render = {props => <Employees emp = {this.props.users} />} />
+        <Route exact path='/' render = {props => <Employees />} />
         <Route path='/newEmployee' component={NewEmployee}/>
         {personalRoutes}
         <Route render={() => <h2>Page not found!</h2>} />
@@ -45,12 +47,14 @@ class Container extends Component {
 
 
 const mapDispatchToProps = {
-  fetchEmployees
+  fetchEmployees,
+  finishLoad
 }
 
 const mapStateToProps = state => ({
   users: state.main.users,
-  error: state.main.error
+  error: state.main.error,
+  loading:state.main.loading
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Container);

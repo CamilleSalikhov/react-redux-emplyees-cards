@@ -6,4 +6,6 @@ export const HEAD_STATUS = 'HEAD_STATUS';
 export const COMMENT_STATUS = 'COMMENT_STATUS';
 export const RESET_BUTTON = 'RESET_BUTTON';
 export const CAROUSEL_POSITION = "CAROUSEL_POSITION";
-export const FETCH_ERROR = 'FETCH_ERROR'
+export const FETCH_ERROR = 'FETCH_ERROR';
+export const FINISH_LOAD = "FINISH_LOAD";
+export const CHANGE_PAGE = 'CHANGE_PAGE'

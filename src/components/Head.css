@@ -6,10 +6,14 @@
     height: 60px
 }
 
+.newUserButton {
+    text-decoration: none !important;
+}
+
 .homeLink {
     
     font-size: calc(10px + 2vmin);
-    text-decoration: none;
+    text-decoration: none !important;
     color:white;
     align-self:center
 }
