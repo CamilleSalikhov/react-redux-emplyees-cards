@@ -1,7 +1,5 @@
   .carousel {
     align-self: center;
-    width: 398px;
-    padding: 10px 40px;
     border: 1px solid #CCC;
     background:#F5F7F9;
     margin: 10px 0 10px 0;
@@ -41,21 +39,21 @@
    
   
   .gallery {
-    width: 390px;
-    overflow: hidden;
+    width: 390px ;
+    overflow: hidden ;
   }
   
   .gallery ul {
     height: 130px;
-    margin: 0;
-    padding: 0;
+    margin: 0 ;
+    padding: 0 ;
     list-style: none;
-    transition: margin-left 250ms;
+    transition: margin-left 250ms ;
     /* remove white-space between inline-block'ed li */
     /* http://davidwalsh.name/remove-whitespace-inline-block */
     font-size: 0;
   }
   
   .gallery li {
-    display: inline-block;
+    display: inline-block ;
   }

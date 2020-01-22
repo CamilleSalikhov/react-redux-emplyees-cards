@@ -4,8 +4,8 @@ import {changeCurrentPage} from "../reduxRelated/actions";
 import uuid from 'uuid'
 
 class Paginate extends React.Component {
-
-
+    
+    
     render() {
         let buttonNumer = [];
         for(let i = 1; i<= Math.ceil(this.props.users.length / 5); i++) {

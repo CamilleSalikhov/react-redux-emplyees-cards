@@ -53,7 +53,7 @@ export const response = [
     {
       "id": 4,
       "name": "Patricia Lebsack",
-      img : 'https://www.jwtinside.com/wp-content/uploads/2014/12/welcomeaboard.jpg',
+      img : 'https://www.nudgerewards.com/wp-content/uploads/2019/05/blog_15brands-1024x675.jpg',
       noimage:'https://imageog.flaticon.com/icons/png/512/36/36601.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF',
       'occupation': 'tailor',
       "username": "Karianne",
@@ -104,7 +104,7 @@ export const response = [
     {
       "id": 7,
       "name": "Kurtis Weissnat",
-      img: 'https://www.patriotsoftware.com/payroll/training/blog/wp-content/uploads/2011/12/exempt-employee-RS8084.jpg',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUKGD8z4-ug__LvGAS65KhT4GfUjIJWMSRACyoijxhxzn77VUmhg&s',
       noimage:'https://imageog.flaticon.com/icons/png/512/36/36601.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF',
       'occupation': 'architect',
       "username": "Elwyn.Skiles",

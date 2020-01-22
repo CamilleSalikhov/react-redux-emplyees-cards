@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
-import {addEmployee, addNewUserComments} from '../reduxRelated/actions'
+import {addEmployee, addNewUserComments, changeCurrentPage} from '../reduxRelated/actions'
 import { connect } from 'react-redux';
 import history from '../history';
 import './NewEmployee.css'
@@ -22,6 +22,10 @@ class NewEmployee extends Component {
         this.props.newComments(newEmpObj.id)
 
         history.push('/')
+
+        let lastPage = Math.ceil((this.props.users.length + 1) / 5);
+        this.props.changeCurrentPage(lastPage)
+
     }
 
     render() {
@@ -44,7 +48,14 @@ class NewEmployee extends Component {
 
 const mapDispatchToProps = {
     newEmployee: addEmployee,
-    newComments:addNewUserComments
+    newComments:addNewUserComments,
+    changeCurrentPage
 }
 
-export default connect(null,mapDispatchToProps)(NewEmployee)
+const mapStateToProps = (state) => (
+    {
+        users:state.main.users
+    }
+)
+
+export default connect(mapStateToProps,mapDispatchToProps)(NewEmployee)
